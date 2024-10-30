@@ -253,42 +253,53 @@ namespace Algorithms
             return true;
         }
 
+        public static int Sum(int[] collection, Predicate<int> predicate)
+        {
+            int result = 0;
+
+            for (int i = 0; i < collection.Length; i++)
+            {
+                if (predicate(collection[i]))
+                {
+                    result += collection[i];
+                }
+               
+            }
+
+            return result;
+        }
+        public static int Sum(List<int> collection, Predicate<int> predicate)
+        {
+            int result = 0;
+
+            for (int i = 0; i < collection.Count; i++)
+            {
+                if (predicate(collection[i]))
+                {
+                    result += collection[i];
+                }
+            }
+
+            return result;
+        }
+
+        public static T[] Take<T>(T[] vehicles, int count)
+        {
+            T[] economicCars = new T[count];
+            for (int i = 0; i < economicCars.Length; i++)
+            {
+                economicCars[i] = vehicles[i];
+            }
+
+            return economicCars;
+        }
+
+
 
         /*
-public static int Sum(int[] collection)
-{
-int result = 0;
-
-for (int i = 0; i < collection.Length; i++)
-{
-result += collection[i];
-}
-
-return result;
-}
-public static int Sum(List<int> collection)
-{
-int result = 0;
-
-for (int i = 0; i < collection.Count; i++)
-{
-result += i;
-}
-
-return result;
-}
 
 
-public static Vehicle[] Take(Vehicle[] vehicles, int count)
-{
-Vehicle[] economicCars = new Vehicle[count];
-for (int i = 0; i < economicCars.Length; i++)
-{
-economicCars[i] = vehicles[i];
-}
 
-return economicCars;
-}
 
 
 
